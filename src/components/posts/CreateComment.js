@@ -5,7 +5,7 @@ export class CreateComment extends Component {
     super(props);
 
     this.state = {
-      comment: "",
+      commentDes: "",
     };
   }
   handleChange = (e) => {
@@ -23,7 +23,7 @@ export class CreateComment extends Component {
         <form className="white comment-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
-            id="comment"
+            id="commentDes"
             onChange={this.handleChange}
             className="create-comment-input"
             placeholder="create comment"

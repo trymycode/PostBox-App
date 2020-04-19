@@ -2,6 +2,7 @@ import React,{ Component } from "react";
 import PostLike from "./PostLike";
 import Comment from "./Comment";
 import CreateComment from "./CreateComment";
+import { connect } from "react-redux";
 class PostDetails extends Component {
   constructor(props) {
     super(props)
@@ -39,4 +40,9 @@ class PostDetails extends Component {
     );
   }
 }
-export default PostDetails;
+const mapStateToProps = (state)=>{
+  return{
+    
+  }
+}
+export default connect(mapStateToProps,null)(PostDetails);
