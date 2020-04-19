@@ -1,7 +1,15 @@
-.post-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+form{
+    padding: 20px;
+    margin-top: 15px;
+}
+.post-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.big {
+  font-size: 32px;
+  line-height: 68px;
 }
