@@ -1,0 +1,26 @@
+form.white.comment-form {
+  display: flex;
+  margin-left: -49px;
+}
+.create-comment-input {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+input.create-comment-button {
+  margin-left: 10px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: skyblue;
+  color: #444;
+  border: none;
+  padding: 5px 10px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+input.create-comment-button:hover{
+  background-color: #777;
+  color: white;
+}

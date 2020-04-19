@@ -1,7 +1,7 @@
 import React,{ Component } from "react";
 import PostLike from "./PostLike";
 import Comment from "./Comment";
-
+import CreateComment from "./CreateComment";
 class PostDetails extends Component {
   constructor(props) {
     super(props)
@@ -28,11 +28,7 @@ class PostDetails extends Component {
           <PostLike />
           <div className="card-action gret lighten-4">
             {/* add create comment box */}
-            <input
-            type="text"
-            placeholder="post a comment"
-            className="comment-inbox"
-          />
+            <CreateComment/>
             <Comment />
             <Comment />
             <Comment />

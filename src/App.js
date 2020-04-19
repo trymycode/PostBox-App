@@ -6,6 +6,7 @@ import Profile from "./components/profileDetails/Profile";
 import PostDetails from "./components/posts/PostDetails";
 import SignedIn from "./components/auth/SignedIn";
 import SignedUp from "./components/auth/SignedUp";
+import CreatePost from "./components/posts/CreatePost";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" component={Profile} />
           <Route path="/signup" component={SignedUp} />
           <Route path="/signin" component={SignedIn} />
+          <Route path="/create-post" component={CreatePost} />
           <Route path="/post/:id" component={PostDetails} />
         </Switch>
       </div>

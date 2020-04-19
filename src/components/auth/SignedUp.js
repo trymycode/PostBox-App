@@ -50,7 +50,7 @@ handleSubmit = (e) =>{
                        <input type="text" id="profilePic" onChange={this.handleChange}/>
                    </div>
                    <div className="input-field">
-                       <button className="btn skyblue lighten-1 z-depth-0">Login</button>
+                       <button className="btn skyblue lighten-1 z-depth-0">Sign up</button>
                    </div>
                    </form> 
             </div>
