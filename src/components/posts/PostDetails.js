@@ -14,7 +14,7 @@ class PostDetails extends Component {
   
   render() {
     const id = this.props.match.params.id;
-  
+    
     return (
       <div className="container section project-details">
         <div className="card z-depth-0">
@@ -42,7 +42,7 @@ class PostDetails extends Component {
 }
 const mapStateToProps = (state)=>{
   return{
-    
+    posts: state.postReducer.posts
   }
 }
-export default connect(mapStateToProps,null)(PostDetails);
+export default PostDetails;

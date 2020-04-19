@@ -1,13 +1,15 @@
 import React from "react";
 import PostSummery from "./PostSummery";
-const PostList = () => {
+const PostList = ({posts}) => {
   return (
     <div className="post-list section">
-        <PostSummery/>
-        <PostSummery/>
-        <PostSummery/>
-        <PostSummery/>
-        <PostSummery/>
+      {posts && posts.map(post =>{
+        return(
+          <PostSummery id={post.id} post={post} />
+        )
+        
+      })}
+        
       </div>
   );
 };
