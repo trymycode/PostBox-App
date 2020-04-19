@@ -7,7 +7,7 @@ const SignedInLinks = () => {
         <li><NavLink to="/">New Project</NavLink></li>
         <li><NavLink to="/">Logout</NavLink></li>
         {/* show the name who has loged in */}
-        <li><NavLink to="/" className="btn btn-floating purple lighten-1">PB</NavLink></li>
+        <li><NavLink to="/" className="btn btn-floating skyblue lighten-1">PB</NavLink></li>
     </ul>
   );
 };
