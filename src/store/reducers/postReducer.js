@@ -5,7 +5,7 @@ const initialState = {
       title: "The Ancient India",
       content: "The Ancient IndiaThe Ancient India",
       likes: 0,
-      comments: [{ id: 1, commentDes: "nice one" }]
+      comments: [{ id: 1, commentDes: "nice one" , }]
     },
     {
       id: 2,
