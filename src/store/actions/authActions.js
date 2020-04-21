@@ -24,3 +24,27 @@ export const signOut = () =>{
         });
     }
 }
+
+export const signUp = (newUser) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) =>{
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+
+        firebase.auth().createUserWithEmailAndPassword(
+            newUser.email,
+            newUser.password
+        ).then((res)=>{
+            console.log(res.user);
+            return firestore.collection("users").doc(res.user.uid).set({
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
+                initials: newUser.firstName[0] + newUser.lastName[0],
+                imageUrl: newUser.imageUrl
+            })
+        }).then(()=>{
+            dispatch({type: "SIGNUP_SUCCESS" })
+        }).catch( err => {
+            dispatch({ type: 'SIGNUP_ERROR' , err})
+        })
+    }
+}
