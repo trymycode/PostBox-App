@@ -1,23 +1,34 @@
 import React, { Component } from "react";
 import PostList from "../posts/PostList";
 import { connect } from "react-redux";
-
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 class Profile extends Component {
   render() {
     const { posts } = this.props;
-    console.log("posts", posts);
-    return (
-      <div className="profile container">
-        <div className="postlist-container">
-          <PostList posts={posts}/>
+    if (posts) {
+      return (
+        <div className="profile container">
+          <div className="postlist-container">
+            <PostList posts={posts} />
+          </div>
         </div>
-      </div>
-    );
-  }
-}
-const mapStateToProps = (state)=>{
-    return{
-      posts: state.postReducer.posts
+      );
+    } else {
+      return<div className="container center">
+      <h4>Loading.......</h4>
+    </div>;
     }
   }
-  export default connect(mapStateToProps)(Profile);
+}
+const mapStateToProps = (state) => {
+  console.log("state", state);
+  return {
+    posts: state.firestore.ordered.posts,
+  };
+};
+export default compose(
+  connect(mapStateToProps),
+
+  firestoreConnect([{ collection: "posts" }])
+)(Profile);

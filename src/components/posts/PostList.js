@@ -1,11 +1,16 @@
 import React from "react";
 import PostSummery from "./PostSummery";
+import { Link } from 'react-router-dom';
 const PostList = ({posts}) => {
   return (
     <div className="post-list section">
       {posts && posts.map(post =>{
+       
         return(
-          <PostSummery id={post.id} post={post} />
+          <Link to={'/post/' + post.id} key={post.id}>
+          <PostSummery  post={post} />
+          </Link>
+          
         )
         
       })}

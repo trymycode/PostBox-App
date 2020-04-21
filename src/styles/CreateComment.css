@@ -1,6 +1,7 @@
 form.white.comment-form {
   display: flex;
-  margin-left: -49px;
+  margin-left: -24%;
+  width: 65vw;
 }
 .create-comment-input {
   white-space: nowrap;
