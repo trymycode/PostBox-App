@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { createPostAction } from "../../store/actions/postActions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
  class CreatePost extends Component {
     constructor(props) {
@@ -23,6 +24,9 @@ handleSubmit = (e) =>{
 }
 
     render() {
+        const { auth } = this.props;
+    if( !auth.uid ) return <Redirect to="/signin" />
+
         return (
             <div className="container">
                <form className="white" onSubmit={this.handleSubmit}>
@@ -46,9 +50,15 @@ handleSubmit = (e) =>{
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+      auth: state.firebase.auth
+    };
+  };
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createPostAction: (post)=>dispatch(createPostAction(post))
     }
 }
-export default connect(null, mapDispatchToProps)(CreatePost);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

@@ -5,6 +5,8 @@ import CreateComment from "./CreateComment";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
+import { Redirect } from "react-router-dom";
+
 class PostDetails extends Component {
   constructor(props) {
     super(props);
@@ -13,41 +15,43 @@ class PostDetails extends Component {
   }
 
   render() {
-    const id = this.props.match.params.id;
-    const { post } = this.props;
-    console.log("+++++", post);
-    if (post) {
-      return (
-        <div className="container section project-details">
-          <div className="card z-depth-0">
-            <div className="card-content">
-              <span className="card-title">{post.title}</span>
-              <p>{post.content}</p>
-            </div>
-            <PostLike likes={post.likes} />
-            <div className="card-action gret lighten-4 grey-text">
-              <div>
-                Posted by {post.authorFirstName + " " + post.authorLastName}
+    const { post, auth } = this.props;
+    if( !auth.uid ) return <Redirect to="/signin" />
+    else{
+      if (post) {
+        return (
+          <div className="container section project-details">
+            <div className="card z-depth-0">
+              <div className="card-content">
+                <span className="card-title">{post.title}</span>
+                <p>{post.content}</p>
+              </div>
+              <PostLike likes={post.likes} />
+              <div className="card-action gret lighten-4 grey-text">
+                <div>
+                  Posted by {post.authorFirstName + " " + post.authorLastName}
+                </div>
+              </div>
+              <div className="card-action gret lighten-4">
+                {/* add create comment box */}
+                <CreateComment />
+                <Comment />
+                <Comment />
+                <Comment />
+                <Comment />
               </div>
             </div>
-            <div className="card-action gret lighten-4">
-              {/* add create comment box */}
-              <CreateComment />
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
-            </div>
           </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="container center">
-          <h4>Loading.......</h4>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="container center">
+            <h4>Loading.......</h4>
+          </div>
+        );
+      }
     }
+   
   }
 }
 const mapStateToProps = (state, ownProps) => {
@@ -57,6 +61,7 @@ const mapStateToProps = (state, ownProps) => {
   const post = posts ? posts[id] : null;
   return {
     post,
+    auth: state.firebase.auth
   };
 };
 
