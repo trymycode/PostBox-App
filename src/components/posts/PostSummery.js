@@ -1,18 +1,19 @@
 import React from "react";
-
-const PostSummery = ({post}) =>{
-    return (
-        <div className="card z-depth-0 post-summery">
-        <div className="card-content grey-text text-darken-3">
-            <span className="card-title">
-               {post.title}
-            </span>
-            <p>Post by the post creator 1</p>
-          <p className="grey-text">
-              4th Jan, 3pm
-          </p>
-        </div>
+import moment from 'moment';
+const PostSummery = ({ post }) => {
+    let date = moment(post.createdAt.toDate()).calendar();
+  return (
+    <div className="card z-depth-0 post-summery">
+      <div className="card-content grey-text text-darken-3">
+        <span className="card-title">{post.title}</span>
+        <p className="grey-text ">
+          Post created by {post.authorFirstName + " " + post.authorLastName}
+        </p>
+        <p className="grey-text lighten-4">
+          {date}
+        </p>
+      </div>
     </div>
-    )
-}
+  );
+};
 export default PostSummery;

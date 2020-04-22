@@ -4,12 +4,14 @@ export const createPostAction = (post) => {
     // make async call to database
 
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorId = getState().firebase.auth.uid;
     firestore.collection('posts').add({
       ...post,
-      authorFirstName: "Coco",
-      authorLastName: 'Irwin',
+      authorFirstName: profile.firstName,
+      authorLastName: profile.lastName,
       likes:4,
-      authorId: 123456,
+      authorId: authorId,
       createdAt: new Date()
     }).then (() => {
       console.log("called action")

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
+import moment from "moment";
 
 class PostDetails extends Component {
   constructor(props) {
@@ -16,8 +17,8 @@ class PostDetails extends Component {
 
   render() {
     const { post, auth } = this.props;
-    if( !auth.uid ) return <Redirect to="/signin" />
-    else{
+    if (!auth.uid) return <Redirect to="/signin" />;
+    else {
       if (post) {
         return (
           <div className="container section project-details">
@@ -25,8 +26,9 @@ class PostDetails extends Component {
               <div className="card-content">
                 <span className="card-title">{post.title}</span>
                 <p>{post.content}</p>
+               
               </div>
-              <PostLike likes={post.likes} />
+              <PostLike likes={post.likes} date={post.createdAt}/>
               <div className="card-action gret lighten-4 grey-text">
                 <div>
                   Posted by {post.authorFirstName + " " + post.authorLastName}
@@ -51,7 +53,6 @@ class PostDetails extends Component {
         );
       }
     }
-   
   }
 }
 const mapStateToProps = (state, ownProps) => {
@@ -61,7 +62,7 @@ const mapStateToProps = (state, ownProps) => {
   const post = posts ? posts[id] : null;
   return {
     post,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
   };
 };
 

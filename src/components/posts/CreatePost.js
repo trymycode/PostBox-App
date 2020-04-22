@@ -20,7 +20,8 @@ handleChange = (e) =>{
 handleSubmit = (e) =>{
     e.preventDefault();
     this.props.createPostAction(this.state);
-    console.log("submitted");
+   this.props.history.push('/');
+
 }
 
     render() {

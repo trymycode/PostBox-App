@@ -34,9 +34,9 @@ form{
   flex-wrap: wrap;
   margin: 5px;
 }
-/* .gap{
+.gap{
   margin: 5px;
-} */
+}
 .cardContent{
   padding: 10px;
   box-sizing: border-box;
@@ -46,4 +46,13 @@ form{
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+/* postLike component styles */
+.alignment{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.item {
+  margin-right: 20px
 }
