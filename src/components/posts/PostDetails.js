@@ -21,7 +21,7 @@ class PostDetails extends Component {
       if (post) {
         return (
           <div className="container section project-details">
-            <div className="card z-depth-0">
+            <div className="card z-depth-0 gap">
               <div className="card-content">
                 <span className="card-title">{post.title}</span>
                 <p>{post.content}</p>

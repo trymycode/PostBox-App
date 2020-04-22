@@ -7,9 +7,43 @@ form{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
 }
 .big {
   font-size: 32px;
   line-height: 68px;
+}
+/* profile css */
+
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+.box-left {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px
+}
+.box-right{
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+/* .gap{
+  margin: 5px;
+} */
+.cardContent{
+  padding: 10px;
+  box-sizing: border-box;
+ text-align: center;
+}
+.profilePic{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
