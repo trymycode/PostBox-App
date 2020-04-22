@@ -16,11 +16,9 @@ export const createPostAction = (post) => {
         createdAt: new Date(),
       })
       .then(() => {
-        console.log("called action");
         dispatch({ type: "CREATE_POST", post });
       })
       .catch((err) => {
-        console.log(err, "err");
         dispatch({ type: "CREATE_POST_ERROR" }, err);
       });
   };

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "../../styles/CreateComment.css";
-export class CreateComment extends Component {
+import { createComment } from "../../store/actions/commentAction";
+import { connect } from "react-redux";
+
+class CreateComment extends Component {
   constructor(props) {
     super(props);
 
@@ -15,7 +18,12 @@ export class CreateComment extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted", this.state);
+    const { createComment, postId } = this.props;
+
+  let comment = {};
+  comment.postId = postId;
+  comment.description = this.state.commentDes;
+    createComment(comment);
   };
   render() {
     return (
@@ -36,4 +44,9 @@ export class CreateComment extends Component {
   }
 }
 
-export default CreateComment;
+const mapDispatchToProps = (dispatch) => {
+  return {
+      createComment: (comment)=>dispatch(createComment(comment))
+  }
+}
+export default connect(null, mapDispatchToProps)(CreateComment);

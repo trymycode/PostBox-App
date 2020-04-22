@@ -13,9 +13,9 @@ class Profile extends Component {
     else {
       if (posts) {
         let firstName =
-          profileDetails && profileDetails.firstName.toString().toUpperCase();
+          profileDetails && profileDetails.firstName;
         let lastName =
-          profileDetails && profileDetails.lastName.toString().toUpperCase();
+          profileDetails && profileDetails.lastName;
         return (
           <div className="profile container">
             <div className="box-left">

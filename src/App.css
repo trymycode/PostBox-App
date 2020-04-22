@@ -62,13 +62,18 @@ i.fa.fa-heart:hover {
 }
 /* person details */
 span.cardDesc {
-  max-width: 70px !important;
   font-size: 12px;
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 16px;
+
+  text-align: center !important;
+  max-width: 189px !important;
+
+  display: inline-block;
 }
-#nameColor{
+#nameColor {
   color: #555;
 }
 

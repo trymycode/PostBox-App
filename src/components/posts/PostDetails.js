@@ -40,7 +40,7 @@ class PostDetails extends Component {
               </div>
               <div className="card-action gret lighten-4">
                 {/* add create comment box */}
-                <CreateComment />
+                <CreateComment  postId={this.props.match.params.id} />
                 <Comment />
                 <Comment />
                 <Comment />
