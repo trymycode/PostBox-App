@@ -1,6 +1,6 @@
-form{
-    padding: 20px;
-    margin-top: 15px;
+form {
+  padding: 20px;
+  margin-top: 15px;
 }
 .post-list {
   display: flex;
@@ -25,30 +25,30 @@ form{
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  margin: 5px
+  margin: 5px;
 }
-.box-right{
+.box-right {
   display: flex;
   width: 40%;
   flex-direction: column;
   flex-wrap: wrap;
   margin: 5px;
 }
-.gap{
+.gap {
   margin: 5px;
 }
-.cardContent{
+.cardContent {
   padding: 10px;
   box-sizing: border-box;
- text-align: center;
+  text-align: center;
 }
-.profilePic{
+.profilePic {
   width: 150px;
   height: 150px;
   border-radius: 50%;
 }
 /* postLike component styles */
-.alignment{
+.alignment {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -57,6 +57,21 @@ form{
   margin-right: 20px;
   cursor: pointer;
 }
-i.fa.fa-heart:hover{
+i.fa.fa-heart:hover {
   color: coral;
+}
+/* person details */
+span.cardDesc {
+  max-width: 70px !important;
+  font-size: 12px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#nameColor{
+  color: #555;
+}
+
+#emailColor {
+  color: #aaa;
 }

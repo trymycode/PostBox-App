@@ -4,22 +4,30 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
-import PersonDetails  from "../personDetails/PersonDetails";
+import PersonDetails from "../personDetails/PersonDetails";
 class Profile extends Component {
   render() {
     const { posts, auth, profileDetails } = this.props;
+
     if (!auth.uid) return <Redirect to="/signin" />;
     else {
       if (posts) {
+        let firstName =
+          profileDetails && profileDetails.firstName.toString().toUpperCase();
+        let lastName =
+          profileDetails && profileDetails.lastName.toString().toUpperCase();
         return (
           <div className="profile container">
-           
-              <div className="box-left">
-                <PostList posts={posts} />
-              </div>
-              <div className="box-right">
-              <PersonDetails details={profileDetails} emailId={auth.email}/>
-            
+            <div className="box-left">
+              <PostList posts={posts} />
+            </div>
+            <div className="box-right">
+              <PersonDetails
+                details={profileDetails}
+                firstName={firstName}
+                lastName={lastName}
+                emailId={auth.email}
+              />
             </div>
           </div>
         );
@@ -37,7 +45,7 @@ const mapStateToProps = (state) => {
   return {
     posts: state.firestore.ordered.posts,
     auth: state.firebase.auth,
-    profileDetails: state.firebase.profile
+    profileDetails: state.firebase.profile,
   };
 };
 export default compose(
