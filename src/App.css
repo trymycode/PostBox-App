@@ -54,5 +54,9 @@ form{
   justify-content: flex-start;
 }
 .item {
-  margin-right: 20px
+  margin-right: 20px;
+  cursor: pointer;
+}
+i.fa.fa-heart:hover{
+  color: coral;
 }

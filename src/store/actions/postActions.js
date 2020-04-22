@@ -23,3 +23,22 @@ export const createPostAction = (post) => {
    
   };
 };
+ 
+export const likePost = ({likes, postId}) => {
+  return(dispatch, getState, {getFirestore}) =>{
+    const firestore = getFirestore();
+    console.log(likes,postId, "ACTIONS")
+    firestore.collection('posts').doc(postId).update({likes:likes}).then(()=>{
+        console.log("post like")
+        dispatch({ type: 'POST_LIKE_SUCCESS'});
+      }).catch((err)=>{
+        console.log("post like unsuccessful");
+        dispatch({ type: 'POST_LIKE_UNSUCCESS'}, err);
+      })
+
+
+
+
+  }
+ 
+}

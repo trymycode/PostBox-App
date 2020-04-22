@@ -26,9 +26,13 @@ class PostDetails extends Component {
               <div className="card-content">
                 <span className="card-title">{post.title}</span>
                 <p>{post.content}</p>
-               
               </div>
-              <PostLike likes={post.likes} date={post.createdAt}/>
+              <PostLike
+                likes={post.likes}
+                date={post.createdAt}
+                post={post}
+                postId={this.props.match.params.id}
+              />
               <div className="card-action gret lighten-4 grey-text">
                 <div>
                   Posted by {post.authorFirstName + " " + post.authorLastName}
@@ -56,12 +60,13 @@ class PostDetails extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  console.log("posts", state);
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;
+
   return {
     post,
+
     auth: state.firebase.auth,
   };
 };
