@@ -21,18 +21,14 @@ class CreateComment extends Component {
     e.preventDefault();
 
     const { createComment, postId, authorName, postCreator } = this.props;
-    if(authorName != postCreator){
+   
       let comment = {};
       comment.postId = postId;
       comment.description = this.state.commentDes;
       comment.authorName = authorName;
       
       createComment(comment);
-    } else if(authorName == postCreator){
-      this.setState({
-        warning: true
-      })
-    }
+    
    
   };
   render() {
@@ -49,7 +45,7 @@ class CreateComment extends Component {
           />
           <input type="submit" className="create-comment-button" />
         </form>
-        {this.state.warning && <div className="orange-text">You can not add comment to your own post!</div>}
+       
       </div>
     );
   }

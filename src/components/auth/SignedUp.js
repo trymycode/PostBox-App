@@ -34,19 +34,42 @@ export class SignedUp extends Component {
           <h5 className="grey-text text-darken-3">Sign Up</h5>
           <div className="input-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} maxLength="20" />
+            <input
+              type="email"
+              id="email"
+              onChange={this.handleChange}
+              maxLength="20"
+            />
           </div>
           <div className="input-field">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} maxlength="20" />
+            <input
+              type="password"
+              id="password"
+              onChange={this.handleChange}
+              minlength="3"
+              maxlength="20"
+            />
           </div>
           <div className="input-field">
             <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} maxlength="15" minLength="3" />
+            <input
+              type="text"
+              id="firstName"
+              onChange={this.handleChange}
+              maxlength="15"
+              minlength="3"
+            />
           </div>
           <div className="input-field">
             <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} maxlength="15" minLength="3" />
+            <input
+              type="text"
+              id="lastName"
+              onChange={this.handleChange}
+              maxlength="15"
+              minlength="3"
+            />
           </div>
           <div className="input-field">
             <label htmlFor="imageUrl">Profile Picture</label>

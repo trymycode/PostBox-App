@@ -38,7 +38,9 @@ class PostDetails extends Component {
                 date={post.createdAt}
                 post={post}
                 postId={this.props.match.params.id}
-              />
+                postCreator={authorName}
+                profileCreator={profileCreator}
+              /> 
               <div className="card-action gret lighten-4 grey-text">
                 <div>
                   Posted by {authorName}
@@ -47,7 +49,7 @@ class PostDetails extends Component {
               <div className="card-action gret lighten-4">
                 {/* add create comment box */}
 
-                <CreateComment postId={postID} postCreator={authorName} authorName={profileCreator}/>
+                <CreateComment postId={postID}  authorName={profileCreator}/>
                 {/* comments */}
                 {showMsg && <div className="grey-text lighten-4"> No comments added yet.</div>}
                 {filteredComments && filteredComments.map((comment,index)=><Comment key ={index} comment={comment} />)}
