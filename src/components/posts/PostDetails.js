@@ -28,8 +28,8 @@ class PostDetails extends Component {
           <div className="container section project-details">
             <div className="card z-depth-0 gap">
               <div className="card-content">
-                <span className="card-title">{post.title}</span>
-                <p>{post.content}</p>
+                <span className="card-title cardTitle">{post.title}</span>
+                <p className="postDes">{post.content}</p>
               </div>
               <PostLike
                 likes={post.likes}

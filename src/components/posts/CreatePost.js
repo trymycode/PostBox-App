@@ -49,6 +49,7 @@ class CreatePost extends Component {
               id="content"
               className="materialize-textarea"
               onChange={this.handleChange}
+              maxlength ="500"
             ></textarea>
           </div>
           <div className="input-field">

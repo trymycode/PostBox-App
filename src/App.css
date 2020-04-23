@@ -1,3 +1,6 @@
+.color {
+  background-color: #8566aa;
+}
 form {
   padding: 20px;
   margin-top: 15px;
@@ -79,4 +82,20 @@ span.cardDesc {
 
 #emailColor {
   color: #aaa;
+}
+/* post summery */
+.post-summery {
+  width: 500px;
+  
+}
+/* post details */
+.cardTitle {
+  color:#8566aa;
+  font-weight: 600;
+  font-size: 35px !important;
+}
+
+.postDes{
+  padding: 10px 5px;
+  color: #777;
 }

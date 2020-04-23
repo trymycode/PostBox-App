@@ -33,15 +33,15 @@ class CreateComment extends Component {
   render() {
     return (
       <div className="container">
-        <form className="white comment-form" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            id="commentDes"
-            onChange={this.handleChange}
-            className="create-comment-input"
-            placeholder="create comment"
-            autoFocus
-          />
+        <form className="comment-form" onSubmit={this.handleSubmit}>
+          
+          <textarea
+              id="commentDes"
+              className="materialize-textarea create-comment-textarea"
+              onChange={this.handleChange}
+              placeholder="create comment"
+              maxlength ="300"
+            ></textarea>
           <input type="submit" className="create-comment-button" />
         </form>
       </div>
