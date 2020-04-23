@@ -24,7 +24,7 @@ class PostLike extends Component {
     } = this.props;
 
     const postLike = () => {
-      if (postCreator != profileCreator) {
+      if (postCreator !== profileCreator) {
         this.setState(
           {
             likeNum: this.state.likeNum + 1,

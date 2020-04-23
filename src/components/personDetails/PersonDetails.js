@@ -1,12 +1,12 @@
 import React from "react";
-
+import logo from "../../img/profile-pic-logo.png";
 const PersonDetails = (props) => {
   if (props) {
     return (
       <div className="container">
         <div className="card z-depth-0">
           <div className="cardContent">
-            <img src={props.details.imageUrl} className="profilePic" />
+            <img src={props.details.imageUrl == ""? logo: props.details.imageUrl} className="profilePic" />
             <span className="cardDesc" id="nameColor">
               {props.firstName + " " + props.lastName}
             </span>

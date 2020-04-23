@@ -9,7 +9,7 @@ class CreateComment extends Component {
 
     this.state = {
       commentDes: "",
-      warning: false
+      warning: false,
     };
   }
   handleChange = (e) => {
@@ -19,17 +19,16 @@ class CreateComment extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    if (this.state.commentDes != "") {
+      const { createComment, postId, authorName } = this.props;
 
-    const { createComment, postId, authorName, postCreator } = this.props;
-   
       let comment = {};
       comment.postId = postId;
       comment.description = this.state.commentDes;
       comment.authorName = authorName;
-      
+
       createComment(comment);
-    
-   
+    }
   };
   render() {
     return (
@@ -45,7 +44,6 @@ class CreateComment extends Component {
           />
           <input type="submit" className="create-comment-button" />
         </form>
-       
       </div>
     );
   }

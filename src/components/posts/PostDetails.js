@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
-import moment from "moment";
 
 class PostDetails extends Component {
   constructor(props) {
@@ -18,10 +17,9 @@ class PostDetails extends Component {
   render() {
     const { post, auth, comments,profileDetails } = this.props;
     const postID = this.props.match.params.id;
-    const filteredComments = comments && comments.filter(comment => comment.postId == postID);
+    const filteredComments = comments && comments.filter(comment => comment.postId === postID);
     const profileCreator = profileDetails && (profileDetails.firstName + " " + profileDetails.lastName);
     let showMsg = filteredComments && filteredComments.length == 0 ? true : false;
-    console.log("filteredComments length",showMsg);
     if (!auth.uid) return <Redirect to="/signin" />;
     else {
       if (post) {
@@ -70,7 +68,6 @@ class PostDetails extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, "kk");
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;

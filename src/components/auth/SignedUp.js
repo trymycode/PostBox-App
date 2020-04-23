@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/actions/authActions";
+
 export class SignedUp extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ export class SignedUp extends Component {
       firstName: "",
       lastName: "",
       imageUrl: "",
+      showWarnging: false
     };
   }
   handleChange = (e) => {
@@ -22,7 +24,21 @@ export class SignedUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { signUp } = this.props;
-    signUp(this.state);
+    const { email, password, firstName, lastName } = this.state;
+    
+
+    if( email != "" &&
+    password != "" &&
+    firstName != "" &&
+    lastName != ""){
+
+      signUp(this.state);
+    } else {
+      this.setState({
+        showWarnging: true
+      })
+    }
+   
   };
 
   render() {
@@ -79,6 +95,7 @@ export class SignedUp extends Component {
             <button className="btn skyblue lighten-1 z-depth-0">Sign up</button>
             <div className="red-text center">
               {authError && <p>{authError}</p>}
+              {this.state.showWarnging && <p className="red-text">Please provide required information</p>}
             </div>
           </div>
         </form>
