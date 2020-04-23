@@ -15,6 +15,11 @@ form {
   font-size: 32px;
   line-height: 68px;
 }
+/* navbar */
+.nav-color {
+  background: #222831;
+  color: #ececec;
+}
 /* profile css */
 
 .profile {
@@ -66,7 +71,7 @@ i.fa.fa-heart:hover {
 /* person details */
 span.cardDesc {
   font-size: 12px;
-  white-space: wrap;
+  /* white-space: wrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 16px;
@@ -77,25 +82,41 @@ span.cardDesc {
   display: inline-block;
 }
 #nameColor {
-  color: #555;
+  color: #8566aa;
+  padding-top: 0;
+  font-size: 28px;
+  margin-top: 10px;
 }
 
 #emailColor {
-  color: #aaa;
+  color: #777;
+  font-weight: 400;
+  margin-top: 0;
 }
 /* post summery */
 .post-summery {
   width: 500px;
-  
+}
+.space {
+  margin: 5px 0 !important;
+  font-size: 16px;
+  color: #999;
+  margin-left: 1px !important;
+}
+.date {
+  font-size: 14px;
+  color: #999;
+  margin-left: 1px !important;
 }
 /* post details */
 .cardTitle {
-  color:#8566aa;
+  color: #8566aa;
   font-weight: 600;
-  font-size: 35px !important;
+  font-size: 30px !important;
+  margin-bottom: 15px;
 }
 
-.postDes{
+.postDes {
   padding: 10px 5px;
   color: #777;
 }
