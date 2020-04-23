@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 
 class Comment extends Component {
+constructor(props) {
+  super(props)
+
+  this.state = {
+     
+  }
+}
+
   render() {
+    const {comment}= this.props;
     return (
-      <div>
+      <div key={comment.id}>
        
         <p className="comment-details">
-          The placeholder text, beginning with the line “Lorem ipsum dolor sit
-          amet
+         {comment.description}
         </p>
-        <p className="grey-text">by comment creator</p>
+        <p className="grey-text">Created by {comment.authorName}</p>
       </div>
     );
   }

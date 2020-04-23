@@ -12,10 +12,8 @@ class Profile extends Component {
     if (!auth.uid) return <Redirect to="/signin" />;
     else {
       if (posts) {
-        let firstName =
-          profileDetails && profileDetails.firstName;
-        let lastName =
-          profileDetails && profileDetails.lastName;
+        let firstName = profileDetails && profileDetails.firstName;
+        let lastName = profileDetails && profileDetails.lastName;
         return (
           <div className="profile container">
             <div className="box-left">

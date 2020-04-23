@@ -9,6 +9,7 @@ class CreateComment extends Component {
 
     this.state = {
       commentDes: "",
+      warning: false
     };
   }
   handleChange = (e) => {
@@ -18,12 +19,21 @@ class CreateComment extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { createComment, postId } = this.props;
 
-  let comment = {};
-  comment.postId = postId;
-  comment.description = this.state.commentDes;
-    createComment(comment);
+    const { createComment, postId, authorName, postCreator } = this.props;
+    if(authorName != postCreator){
+      let comment = {};
+      comment.postId = postId;
+      comment.description = this.state.commentDes;
+      comment.authorName = authorName;
+      
+      createComment(comment);
+    } else if(authorName == postCreator){
+      this.setState({
+        warning: true
+      })
+    }
+   
   };
   render() {
     return (
@@ -39,6 +49,7 @@ class CreateComment extends Component {
           />
           <input type="submit" className="create-comment-button" />
         </form>
+        {this.state.warning && <div className="orange-text">You can not add comment to your own post!</div>}
       </div>
     );
   }
@@ -46,7 +57,7 @@ class CreateComment extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      createComment: (comment)=>dispatch(createComment(comment))
-  }
-}
+    createComment: (comment) => dispatch(createComment(comment)),
+  };
+};
 export default connect(null, mapDispatchToProps)(CreateComment);

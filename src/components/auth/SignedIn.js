@@ -22,7 +22,6 @@ export class SignedIn extends Component {
     const { signIn } = this.props;
     let creds = this.state;
 
-    console.log("submitted", creds);
     signIn(creds);
   };
 

@@ -27,7 +27,6 @@ export class SignedUp extends Component {
 
   render() {
     const { auth, authError } = this.props;
-    console.log(authError, "ooo");
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container">

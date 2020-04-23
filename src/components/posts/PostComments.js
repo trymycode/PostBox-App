@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
+
+
 export class PostComments extends Component {
   render() {
     return (
@@ -13,5 +15,7 @@ export class PostComments extends Component {
     );
   }
 }
+
+
 
 export default PostComments;

@@ -16,10 +16,16 @@ class PostDetails extends Component {
   }
 
   render() {
-    const { post, auth } = this.props;
+    const { post, auth, comments,profileDetails } = this.props;
+    const postID = this.props.match.params.id;
+    const filteredComments = comments && comments.filter(comment => comment.postId == postID);
+    const profileCreator = profileDetails && (profileDetails.firstName + " " + profileDetails.lastName);
+    let showMsg = filteredComments && filteredComments.length == 0 ? true : false;
+    console.log("filteredComments length",showMsg);
     if (!auth.uid) return <Redirect to="/signin" />;
     else {
       if (post) {
+       const authorName = post.authorFirstName + " " + post.authorLastName;
         return (
           <div className="container section project-details">
             <div className="card z-depth-0 gap">
@@ -35,16 +41,18 @@ class PostDetails extends Component {
               />
               <div className="card-action gret lighten-4 grey-text">
                 <div>
-                  Posted by {post.authorFirstName + " " + post.authorLastName}
+                  Posted by {authorName}
                 </div>
               </div>
               <div className="card-action gret lighten-4">
                 {/* add create comment box */}
-                <CreateComment  postId={this.props.match.params.id} />
-                <Comment />
-                <Comment />
-                <Comment />
-                <Comment />
+
+                <CreateComment postId={postID} postCreator={authorName} authorName={profileCreator}/>
+                {/* comments */}
+                {showMsg && <div className="grey-text lighten-4"> No comments added yet.</div>}
+                {filteredComments && filteredComments.map((comment,index)=><Comment key ={index} comment={comment} />)}
+
+                  
               </div>
             </div>
           </div>
@@ -60,18 +68,21 @@ class PostDetails extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
+  console.log(state, "kk");
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;
+  const comments = state.firestore.ordered.comments;
 
   return {
     post,
-
     auth: state.firebase.auth,
+    comments,
+    profileDetails: state.firebase.profile
   };
 };
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: "posts" }])
+  firestoreConnect([{ collection: "posts" }, { collection: "comments" }])
 )(PostDetails);

@@ -10,11 +10,9 @@ export const createComment = (comment) =>{
           authorId: authorId,
           createdAt: new Date(),
         }).then(() => {
-            console.log("called action CREATE_COMMENT");
             dispatch({ type: "CREATE_COMMENT", comment });
           })
           .catch((err) => {
-            console.log(err, "CREATE_COMMENT_ERROR");
             dispatch({ type: "CREATE_COMMENT_ERROR" }, err);
           });
     }
