@@ -24,13 +24,14 @@ class PostLike extends Component {
     } = this.props;
 
     const postLike = () => {
-      if (postCreator !== profileCreator) {
+      if (postCreator != profileCreator) {
         this.setState(
           {
             likeNum: this.state.likeNum + 1,
           },
           () => {
-            likePost({ likes, postId });
+            likePost({ likes:this.state.likeNum, postId });
+            console.log("run")
           }
         );
       } else if (postCreator == profileCreator) {

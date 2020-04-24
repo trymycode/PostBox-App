@@ -10,12 +10,14 @@ const postReducer = (state = initialState, action) => {
       return state;
 
     case "POST_LIKE_SUCCESS":
+      console.log("POST_LIKE_SUCCESS")
       return {
         ...state,
 
       };
 
     case "POST_LIKE_UNSUCCESS":
+      console.log("POST_LIKE_UNSUCCESS")
       return state;
 
     default:

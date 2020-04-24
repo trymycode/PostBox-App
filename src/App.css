@@ -20,6 +20,17 @@ form {
   background: #222831;
   color: #ececec;
 }
+nav .brand-logo:hover{
+  color: #8566aa;
+}
+nav ul a:hover{
+  color: #8566aa;
+}
+#initialLogo:hover{
+  background-color: #ececec;
+  color: #8566aa;
+  font-weight: 600px;
+}
 /* profile css */
 
 .profile {
@@ -109,6 +120,13 @@ span.cardDesc {
   margin-left: 1px !important;
 }
 /* post details */
+.headline{
+  font-size: 20px;
+  color: #777;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+
+}
 .cardTitle {
   color: #8566aa;
   font-weight: 600;

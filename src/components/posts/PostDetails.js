@@ -50,6 +50,7 @@ class PostDetails extends Component {
                 <CreateComment postId={postID}  authorName={profileCreator}/>
                 {/* comments */}
                 {showMsg && <div className="grey-text lighten-4"> No comments added yet.</div>}
+                {!showMsg && <label className="headline">Comments</label>}
                 {filteredComments && filteredComments.map((comment,index)=><Comment key ={index} comment={comment} />)}
 
                   

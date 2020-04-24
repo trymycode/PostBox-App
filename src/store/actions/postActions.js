@@ -25,6 +25,7 @@ export const createPostAction = (post) => {
 };
 
 export const likePost = ({ likes, postId }) => {
+  console.log("new likes", likes);
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     firestore

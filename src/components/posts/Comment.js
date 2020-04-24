@@ -12,7 +12,7 @@ constructor(props) {
   render() {
     const {comment}= this.props;
     return (
-      <div key={comment.id}>
+      <div key={comment.id} className="comment-container">
        
         <p className="comment-details">
          {comment.description}

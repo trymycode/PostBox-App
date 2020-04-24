@@ -27,7 +27,7 @@ class SignedInLinks extends Component {
         </li>
         {/* show the shortname of who has logged in */}
         <li >
-          <NavLink to="/" className="btn btn-floating color lighten-1">
+          <NavLink to="/" className="btn btn-floating color lighten-1" id="initialLogo">
             {profile.initials}
           </NavLink>
         </li>

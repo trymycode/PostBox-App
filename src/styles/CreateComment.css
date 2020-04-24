@@ -1,11 +1,15 @@
 form.comment-form {
   display: block;
   margin-left: -24%;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 .create-comment-input {
   /* width: 700px; */
   overflow: hidden;
   text-overflow: ellipsis;
+  border-bottom: 2px solid #bbb;
+  -webkit-box-shadow: 0 1px 0 0 #bbb;
 }
 .create-comment-textarea:focus {
   border-bottom: 1px solid rgba(133, 102, 170, 0.7) !important;
@@ -25,14 +29,22 @@ input.create-comment-button {
   outline: none;
   cursor: pointer;
 }
-input.create-comment-button:hover{
+input.create-comment-button:hover {
   background-color: rgba(133, 102, 170, 1);
   color: #eee;
 }
-.comment-details{
+.comment-container {
+  border-bottom: 1px solid #ccc;
+  width: 95%;
+}
+.comment-details {
   width: 100%;
-
+  color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
-
+  background-color: rgba(175, 139, 175, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 0 !important;
+  text-align: justify;
 }
