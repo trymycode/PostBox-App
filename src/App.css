@@ -37,7 +37,7 @@ nav ul a:hover {
   display: flex;
   flex-direction: row;
 }
-.noPostTitle{
+.noPostTitle {
   color: #777;
   font-size: 30px;
   font-weight: 400;
@@ -145,21 +145,20 @@ span.cardDesc {
 }
 /* notification  */
 
-.notification-title{
+.notification-title {
   color: #887;
   font-weight: 400 !important;
-  letter-spacing: 1.2px
+  letter-spacing: 1.2px;
 }
 .notifications {
   max-height: 300px;
- }
- .Grey-text{
-   color: #666;
-  
- }
- .note-date{
-   margin-bottom: 5px;
- }
+}
+.Grey-text {
+  color: #666;
+}
+.note-date {
+  margin-bottom: 5px;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
