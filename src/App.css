@@ -20,13 +20,13 @@ form {
   background: #222831;
   color: #ececec;
 }
-nav .brand-logo:hover{
+nav .brand-logo:hover {
   color: #8566aa;
 }
-nav ul a:hover{
+nav ul a:hover {
   color: #8566aa;
 }
-#initialLogo:hover{
+#initialLogo:hover {
   background-color: #ececec;
   color: #8566aa;
   font-weight: 600px;
@@ -120,12 +120,11 @@ span.cardDesc {
   margin-left: 1px !important;
 }
 /* post details */
-.headline{
+.headline {
   font-size: 20px;
   color: #777;
   line-height: 20px;
   letter-spacing: 1.5px;
-
 }
 .cardTitle {
   color: #8566aa;
@@ -137,4 +136,42 @@ span.cardDesc {
 .postDes {
   padding: 10px 5px;
   color: #777;
+}
+/* notification  */
+
+.notification-title{
+  color: #887;
+  font-weight: 400 !important;
+  letter-spacing: 1.2px
+}
+.notifications {
+  max-height: 300px;
+ }
+ .Grey-text{
+   color: #666;
+  
+ }
+ .note-date{
+   margin-bottom: 5px;
+ }
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: rgb(179, 185, 196); */
+  background: #eec;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #eec;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(179, 185, 196);
 }

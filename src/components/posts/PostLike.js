@@ -13,32 +13,20 @@ class PostLike extends Component {
   }
 
   render() {
-    const {
-      likes,
-      date,
-      post,
-      postId,
-      likePost,
-      postCreator,
-      profileCreator,
-    } = this.props;
+    const { likes, date, post, postId, likePost } = this.props;
 
     const postLike = () => {
-      if (postCreator != profileCreator) {
-        this.setState(
-          {
-            likeNum: this.state.likeNum + 1,
-          },
-          () => {
-            likePost({ likes:this.state.likeNum, postId });
-            console.log("run")
-          }
-        );
-      } else if (postCreator == profileCreator) {
-        this.setState({
-          warning: true,
-        });
-      }
+      this.setState(
+        {
+          likeNum: this.state.likeNum + 1,
+        },
+        () => {
+          likePost({
+            likes: this.state.likeNum,
+            postId,
+          });
+        }
+      );
 
       //  call action
     };
@@ -51,12 +39,6 @@ class PostLike extends Component {
           <div className="lighten-4 grey-text item">
             {moment(date.toDate()).calendar()}
           </div>
-          {this.state.warning && (
-            <div className="lighten-4 orange-text">
-              {" "}
-              You can not like your own post
-            </div>
-          )}
         </div>
       </div>
     );

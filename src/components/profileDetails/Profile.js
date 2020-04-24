@@ -5,9 +5,10 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import PersonDetails from "../personDetails/PersonDetails";
+import Notification from "../notifications/Notification";
 class Profile extends Component {
   render() {
-    const { posts, auth, profileDetails } = this.props;
+    const { posts, auth, profileDetails, notifications } = this.props;
 
     if (!auth.uid) return <Redirect to="/signin" />;
     else {
@@ -26,6 +27,7 @@ class Profile extends Component {
                 lastName={lastName}
                 emailId={auth.email}
               />
+              <Notification notifications={notifications} />
             </div>
           </div>
         );
@@ -44,10 +46,14 @@ const mapStateToProps = (state) => {
     posts: state.firestore.ordered.posts,
     auth: state.firebase.auth,
     profileDetails: state.firebase.profile,
+    notifications: state.firestore.ordered.notifications
   };
 };
 export default compose(
   connect(mapStateToProps),
 
-  firestoreConnect([{ collection: "posts" }])
+  firestoreConnect([
+    { collection: "posts",orderBy: ['createdAt', 'desc'] },
+    { collection: "notifications", limit: 5 , orderBy: ['time', 'desc']},
+  ])
 )(Profile);

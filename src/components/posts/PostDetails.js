@@ -15,7 +15,7 @@ class PostDetails extends Component {
   }
 
   render() {
-    const { post, auth, comments,profileDetails } = this.props;
+    const { post, auth, comments,profileDetails,loggedInUserId } = this.props;
     const postID = this.props.match.params.id;
     const filteredComments = comments && comments.filter(comment => comment.postId === postID);
     const profileCreator = profileDetails && (profileDetails.firstName + " " + profileDetails.lastName);
@@ -33,11 +33,13 @@ class PostDetails extends Component {
               </div>
               <PostLike
                 likes={post.likes}
+                likedBy={post.likedBy}
                 date={post.createdAt}
                 post={post}
                 postId={this.props.match.params.id}
                 postCreator={authorName}
                 profileCreator={profileCreator}
+                loggedInUserId={loggedInUserId}
               /> 
               <div className="card-action gret lighten-4 grey-text">
                 <div>
@@ -73,16 +75,17 @@ const mapStateToProps = (state, ownProps) => {
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;
   const comments = state.firestore.ordered.comments;
-
+  const loggedInUserId =  state.firebase.auth.uid;
   return {
     post,
     auth: state.firebase.auth,
     comments,
-    profileDetails: state.firebase.profile
+    profileDetails: state.firebase.profile,
+    loggedInUserId
   };
 };
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: "posts" }, { collection: "comments" }])
+  firestoreConnect([{ collection: "posts", orderBy: ['createdAt', 'desc'] }, { collection: "comments",orderBy: ['createdAt', 'desc'] }, ])
 )(PostDetails);
