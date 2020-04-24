@@ -13,7 +13,7 @@ export class SignedUp extends Component {
       firstName: "",
       lastName: "",
       imageUrl: "",
-      showWarnging: false
+      showWarnging: false,
     };
   }
   handleChange = (e) => {
@@ -25,20 +25,14 @@ export class SignedUp extends Component {
     e.preventDefault();
     const { signUp } = this.props;
     const { email, password, firstName, lastName } = this.state;
-    
 
-    if( email != "" &&
-    password != "" &&
-    firstName != "" &&
-    lastName != ""){
-
+    if (email != "" && password != "" && firstName != "" && lastName != "") {
       signUp(this.state);
     } else {
       this.setState({
-        showWarnging: true
-      })
+        showWarnging: true,
+      });
     }
-   
   };
 
   render() {
@@ -54,7 +48,7 @@ export class SignedUp extends Component {
               type="email"
               id="email"
               onChange={this.handleChange}
-              maxLength="20"
+              maxLength="30"
             />
           </div>
           <div className="input-field">
@@ -95,7 +89,9 @@ export class SignedUp extends Component {
             <button className="btn skyblue lighten-1 z-depth-0">Sign up</button>
             <div className="red-text center">
               {authError && <p>{authError}</p>}
-              {this.state.showWarnging && <p className="red-text">Please provide required information</p>}
+              {this.state.showWarnging && (
+                <p className="red-text">Please provide required information</p>
+              )}
             </div>
           </div>
         </form>
