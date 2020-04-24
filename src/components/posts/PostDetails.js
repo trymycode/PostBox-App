@@ -33,7 +33,7 @@ class PostDetails extends Component {
               </div>
               <PostLike
                 likes={post.likes}
-                likedBy={post.likedBy}
+                likedByIds={post.likedByIds}
                 date={post.createdAt}
                 post={post}
                 postId={this.props.match.params.id}
@@ -71,6 +71,7 @@ class PostDetails extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
+  // console.log("state.firestore.ordered",state.firestore.ordered," state.firestore.data.posts", state.firestore.data.posts)
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;

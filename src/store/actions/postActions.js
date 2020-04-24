@@ -24,13 +24,13 @@ export const createPostAction = (post) => {
   };
 };
 
-export const likePost = ({ likes, postId }) => {
+export const likePost = ({ likes, postId, likedByIds }) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     firestore
       .collection("posts")
       .doc(postId)
-      .update({ likes: likes})
+      .update({ likes: likes, likedByIds: likedByIds})
       .then(() => {
         dispatch({ type: "POST_LIKE_SUCCESS" });
       })

@@ -13,20 +13,54 @@ class PostLike extends Component {
   }
 
   render() {
-    const { likes, date, post, postId, likePost } = this.props;
-
+    const {
+      likes,
+      date,
+      post,
+      postId,
+      likePost,
+      loggedInUserId,
+      likedByIds,
+    } = this.props;
     const postLike = () => {
-      this.setState(
-        {
-          likeNum: this.state.likeNum + 1,
-        },
-        () => {
-          likePost({
-            likes: this.state.likeNum,
-            postId,
-          });
-        }
-      );
+      // check if loggedInUserId is present in likedByIds array
+      let likedBy = [];
+      let LikedBy = likedBy.concat(likedByIds);
+      let check = LikedBy.filter((id) => id == loggedInUserId);
+
+      let addLike = check.length == 0 ? true : false;
+
+      if (addLike) {
+        LikedBy.push(loggedInUserId);
+        console.log("true", LikedBy)
+        this.setState(
+          {
+            likeNum: this.state.likeNum + 1,
+          },
+          () => {
+            likePost({
+              likes: this.state.likeNum,
+              postId,
+              likedByIds: LikedBy,
+            });
+          }
+        );
+      } else if (addLike == false) {
+        let id = LikedBy.filter((id) => id != loggedInUserId);
+        console.log("false", id)
+        this.setState(
+          {
+            likeNum: this.state.likeNum - 1
+          },
+          () => {
+            likePost({
+              likes: this.state.likeNum,
+              postId,
+              likedByIds: id,
+            });
+          }
+        );
+      }
 
       //  call action
     };
@@ -47,8 +81,8 @@ class PostLike extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    likePost: ({ likes, postId }) => {
-      dispatch(likePost({ likes, postId }));
+    likePost: ({ likes, postId, likedByIds }) => {
+      dispatch(likePost({ likes, postId, likedByIds }));
     },
   };
 };
