@@ -9,6 +9,7 @@ const PostList = ({posts}) => {
         return(
           <Link to={'/post/' + post.id} key={post.id} >
           <PostSummery  post={post} />
+        
           </Link>
           
         )

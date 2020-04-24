@@ -18,6 +18,7 @@ class Profile extends Component {
         return (
           <div className="profile container">
             <div className="box-left">
+              {posts.length == 0 &&<div className="noPostTitle"> No post added yet</div>}
               <PostList posts={posts} />
             </div>
             <div className="box-right">

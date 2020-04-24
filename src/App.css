@@ -37,6 +37,12 @@ nav ul a:hover {
   display: flex;
   flex-direction: row;
 }
+.noPostTitle{
+  color: #777;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
 .box-left {
   width: 70%;
   display: flex;

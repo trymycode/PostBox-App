@@ -11,6 +11,7 @@ class CreatePost extends Component {
       title: "",
       content: "",
       showWarning: false,
+      likedByIds: [],
     };
   }
   handleChange = (e) => {
@@ -49,15 +50,11 @@ class CreatePost extends Component {
               id="content"
               className="materialize-textarea"
               onChange={this.handleChange}
-              maxlength ="500"
+              maxlength="500"
             ></textarea>
           </div>
           <div className="input-field">
-            <button
-              className="btn skyblue lighten-1 z-depth-0"
-            >
-              Create
-            </button>
+            <button className="btn skyblue lighten-1 z-depth-0">Create</button>
           </div>
           {this.state.showWarning && (
             <p className="red-text">Please provide required information</p>
